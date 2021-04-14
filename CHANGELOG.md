@@ -2,7 +2,9 @@
 
 ## [Unreleased]
 
-## [maj.min.rev] - YYY-MM-DD
+## [1.0.0] - 2021-04-14
+
+- Add: Action that can log into github package registry using a passed (github or other) token.
 
 ----
 
