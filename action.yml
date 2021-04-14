@@ -1,6 +1,6 @@
-name: RubyGems Setup GPR
+name: RubyGems Setup GitHub Package Registry
 author: FreeAgent
-description: Configure ruby gem to access for GPR (Github Package Registry)
+description: Configure ruby gem to access GPR (GitHub Package Registry)
 inputs:
   token:
     description: "Token to access the GitHub package registry. Normally using secrets.github_token is enough."

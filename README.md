@@ -1,4 +1,4 @@
-# RubyGems Setup GPR Action
+# RubyGems Setup GitHub Package Registry Action
 
 ## Description
 
@@ -42,7 +42,7 @@ If you want to use your own push or other customizations:
 
 ### token
 
-The token to use to authenticate with github packages. If you are pushing a gem to the same repo with a matching name, the default token is enough:
+The token to be used for authenticating with GitHub packages. If you are pushing a gem to the same repo with a matching name, the default token is enough:
 
 ```yaml
 with:
