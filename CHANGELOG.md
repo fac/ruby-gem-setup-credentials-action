@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2021-04-15
+
+- Change: name to ruby-gem-setup-github-packages-action. Old name still works due too GH redirects.
+
 ## [1.0.0] - 2021-04-14
 
 - Add: Action that can log into github package registry using a passed (github or other) token.
