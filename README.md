@@ -1,10 +1,10 @@
-# RubyGems Setup GitHub Package Registry Action
+# Ruby Gem - Setup GitHub Packages
 
 ## Description
 
-This action will setup ruby gem access (the `~/.gem/credentials` file) for the GitHub Package Registry. If you pushing a gem to the same repo, all it needs is the default github actions token.
+This action will setup ruby gem access (the `~/.gem/credentials` file) for GitHub Packages. If your pushing a gem to the same repo as it builds in, all it needs is the default GitHub actions token.
 
-The key is added under the name `github` and we also set environment variables (`GEM_HOST_API_KEY` and `GEM_HOST`) that can be used to push gems. You can do this your self, but the action is designed to also be used with the [fac/rubygems-push-action](https://github.com/fac/rubygems-push-action).
+The key is added under the name `github` and we also set environment variables (`GEM_HOST_API_KEY` and `GEM_HOST`) that can be used to push gems. You can do this your self, but the action is also designed to be used with the [fac/ruby-gem-push-action](https://github.com/fac/ruby-gem-push-action).
 
 ## Usage
 
@@ -18,12 +18,12 @@ The key is added under the name `github` and we also set environment variables (
       run: bundle exec rake build
 
     - name: Setup GPR
-      uses: fac/rubygems-setup-gpr-action@v1
+      uses: fac/ruby-gem-setup-github-packages-action@v1
       with:
         token: ${{ secrets.github_token }}
 
     - name: Push Gem
-      uses: fac/rubygems-push-action@v1
+      uses: fac/ruby-gem-push-action@v1
 ```
 
 If you want to use your own push or other customizations:
@@ -46,7 +46,7 @@ The token to be used for authenticating with GitHub packages. If you are pushing
 
 ```yaml
 with:
-   token: ${{ secrets.package_token }}
+   token: ${{ secrets.github_token }}
 ```
 
 ## Outputs
