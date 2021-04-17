@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2021-04-26
+
+- Change: Don't export the token in the environment by default, users should use the key name.
+- Add: Input `key` to set the key name, defaults to `github`.
+- Add: Input `export-token` to control exporting the environment, default false.
+
 ## [1.1.0] - 2021-04-15
 
 - Change: name to ruby-gem-setup-github-packages-action. Old name still works due too GH redirects.

@@ -4,7 +4,9 @@
 
 This action will setup ruby gem access (the `~/.gem/credentials` file) for GitHub Packages. If your pushing a gem to the same repo as it builds in, all it needs is the default GitHub actions token.
 
-The key is added under the name `github` and we also set environment variables (`GEM_HOST_API_KEY` and `GEM_HOST`) that can be used to push gems. You can do this your self, but the action is also designed to be used with the [fac/ruby-gem-push-action](https://github.com/fac/ruby-gem-push-action).
+The key is added under the name `github`. Optionally you can export environment variable `GEM_HOST_API_KEY` which is read by (more recent versions of) the `gem` command. However we advise you to be explicit and pass the key name `github` as an input or argument instead.
+
+You can do gem push your self, but the action is also designed to be used with the [fac/ruby-gem-push-action](https://github.com/fac/ruby-gem-push-action).
 
 ## Usage
 
@@ -18,7 +20,7 @@ The key is added under the name `github` and we also set environment variables (
       run: bundle exec rake build
 
     - name: Setup GPR
-      uses: fac/ruby-gem-setup-github-packages-action@v1
+      uses: fac/ruby-gem-setup-github-packages-action@v2
       with:
         token: ${{ secrets.github_token }}
 
@@ -30,12 +32,12 @@ If you want to use your own push or other customizations:
 
 ```yaml
     - name: Setup GPR
-      uses: fac/rubygems-setup-gpr-action@v1
+      uses: fac/ruby-gem-setup-github-packages-action@v2
       with:
         token: ${{ secrets.package_token }}
 
     - name: Push Gem
-      run: gem push --host "$GEM_HOST" foo.gem
+      run: gem push --key=github --host='https://rubygems.pkg.github.com/${{ github.repository_owner }}' foo.gem
 ```
 
 ## Inputs
