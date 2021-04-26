@@ -1,12 +1,12 @@
-# Ruby Gem - Setup GitHub Packages
+# Ruby Gem - Setup Credentials Action
 
 ## Description
 
-This action will setup ruby gem access (the `~/.gem/credentials` file) for GitHub Packages. If your pushing a gem to the same repo as it builds in, all it needs is the default GitHub actions token.
+This action will setup ruby gem access (the `~/.gem/credentials` file) with the given token. If your pushing a gem to GH packages using the same repo as it builds in, all it needs is the default GitHub actions token. For other repos you will need to add a secret you can then pass to the input.
 
-The key is added under the name `github`. Optionally you can export environment variable `GEM_HOST_API_KEY` which is read by (more recent versions of) the `gem` command. However we advise you to be explicit and pass the key name `github` as an input or argument instead.
+The key is added under the name `github` by default, change with the `key` input. Optionally you can export environment variable `GEM_HOST_API_KEY` which is read by (more recent versions of) the `gem` command. However we advise you to be explicit and pass the key name `github` as an input or argument instead.
 
-You can do gem push your self, but the action is also designed to be used with the [fac/ruby-gem-push-action](https://github.com/fac/ruby-gem-push-action).
+You can do the gem push your self, but the action is also designed to be used with the [fac/ruby-gem-push-action](https://github.com/fac/ruby-gem-push-action).
 
 ## Usage
 
@@ -20,19 +20,19 @@ You can do gem push your self, but the action is also designed to be used with t
       run: bundle exec rake build
 
     - name: Setup GPR
-      uses: fac/ruby-gem-setup-github-packages-action@v2
+      uses: fac/ruby-gem-setup-credentials-action@v2
       with:
         token: ${{ secrets.github_token }}
 
     - name: Push Gem
-      uses: fac/ruby-gem-push-action@v1
+      uses: fac/ruby-gem-push-action@v2
 ```
 
 If you want to use your own push or other customizations:
 
 ```yaml
     - name: Setup GPR
-      uses: fac/ruby-gem-setup-github-packages-action@v2
+      uses: fac/ruby-gem-setup-credentials-action@v2
       with:
         token: ${{ secrets.package_token }}
 
@@ -51,6 +51,14 @@ with:
    token: ${{ secrets.github_token }}
 ```
 
+### key
+
+The key name to use in the credentials file. Default is `github`.
+
+### export-token
+
+Set true to export the GEM_HOST_API_KEY environment variable.
+
 ## Outputs
 
 None.
@@ -58,11 +66,8 @@ None.
 
 ### GEM_HOST_API_KEY
 
-Set for the workflow by calling the action. Contains the API key string (prefixed token with Bearer), to access the package repo. Used by `gem push`.
+Optionally exported by calling the action. Contains the API key string (prefixed token with Bearer), to access the package repo. Used by `gem push`.
 
-### GEM_HOST
-
-Set for the workflow by calling the action. The host URL for pushing gems to the package repo for the currently building repo.
 ## Authors
 
 * FreeAgent <opensource@freeagent.com>

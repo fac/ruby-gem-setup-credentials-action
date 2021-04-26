@@ -4,6 +4,7 @@
 
 ## [2.0.0] - 2021-04-26
 
+- Change: Name change to `ruby-gem-setup-credentials` from `ruby-gem-setup-github-packages-action`
 - Change: Don't export the token in the environment by default, users should use the key name.
 - Add: Input `key` to set the key name, defaults to `github`.
 - Add: Input `export-token` to control exporting the environment, default false.

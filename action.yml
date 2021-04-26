@@ -1,4 +1,4 @@
-name: Ruby Gem Setup GitHub Packages
+name: Ruby Gem Setup Credentials
 author: FreeAgent
 description: Configure ruby gem to access GitHub Packages
 inputs:
