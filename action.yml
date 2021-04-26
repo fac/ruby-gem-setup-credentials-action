@@ -1,9 +1,17 @@
-name: Ruby Gem Setup GitHub Packages
+name: Ruby Gem Setup Credentials
 author: FreeAgent
 description: Configure ruby gem to access GitHub Packages
 inputs:
   token:
     description: "Token to access GitHub packages. Normally using secrets.github_token is enough."
+    required: true
+  key:
+    description: "The name to give the key in the creds file and when calling gem push"
+    default: "github"
+    required: true
+  export-token:
+    description: "Set true to export the token (with Bearer prefix) in the GEM_HOST_API_KEY env var."
+    default: false
     required: true
 
 runs:
@@ -17,7 +25,10 @@ runs:
         mkdir -p $HOME/.gem
         touch $HOME/.gem/credentials
         chmod 0600 $HOME/.gem/credentials
-        printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
 
-        echo "GEM_HOST=https://rubygems.pkg.github.com/${{ github.repository_owner }}" >> $GITHUB_ENV
-        echo "GEM_HOST_API_KEY=$GEM_HOST_API_KEY" >> $GITHUB_ENV
+        key_name='${{ inputs.key }}'
+        printf -- "---\n:$key_name: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+
+        if [[ '${{ inputs.export-token }}' == true ]]; then
+          echo "GEM_HOST_API_KEY=$GEM_HOST_API_KEY" >> $GITHUB_ENV
+        fi
