@@ -2,9 +2,9 @@
 
 ## Description
 
-This action will setup ruby gem access (the `~/.gem/credentials` file) for GitHub Packages. If your pushing a gem to the same repo as it builds in, all it needs is the default GitHub actions token.
+This action will setup Ruby gem access (i.e the `~/.gem/credentials` file) for GitHub Packages. If you're pushing a gem to the same repo as it builds in, all it needs is the default GitHub actions token.
 
-The key is added under the name `github` and we also set environment variables (`GEM_HOST_API_KEY` and `GEM_HOST`) that can be used to push gems. You can do this your self, but the action is also designed to be used with the [fac/ruby-gem-push-action](https://github.com/fac/ruby-gem-push-action).
+The key is added under the name `github` and we also set environment variables (`GEM_HOST_API_KEY` and `GEM_HOST`) that can be used to push gems. You can do this yourself, but the action is also designed to be used with the [fac/ruby-gem-push-action](https://github.com/fac/ruby-gem-push-action).
 
 ## Usage
 
