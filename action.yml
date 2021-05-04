@@ -4,7 +4,6 @@ description: Configure ruby gem to access GitHub Packages
 inputs:
   user:
     description: "User name for the token."
-    required: true
     default: Bearer
   token:
     description: "Token to access GitHub packages. Normally using secrets.github_token is enough."
