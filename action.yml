@@ -2,6 +2,9 @@ name: Ruby Gem Setup Credentials
 author: FreeAgent
 description: Configure ruby gem to access GitHub Packages
 inputs:
+  user:
+    description: "User name for the token."
+    default: Bearer
   token:
     description: "Token to access GitHub packages. Normally using secrets.github_token is enough."
     required: true
@@ -19,9 +22,12 @@ runs:
   steps:
     - name: Setup GPR
       shell: bash
-      env:
-        GEM_HOST_API_KEY: "Bearer ${{ inputs.token }}"
       run: |
+        if [ -n "${{ inputs.user}}" ]; then
+          GEM_HOST_API_KEY="${{ inputs.user }} ${{ inputs.token }}"
+        else
+          GEM_HOST_API_KEY="${{ inputs.token }}"
+        fi
         mkdir -p $HOME/.gem
         touch $HOME/.gem/credentials
         chmod 0600 $HOME/.gem/credentials

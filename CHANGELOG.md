@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [2.1.0] - 2021-05-04
+
+- Add: user input to set the user name for the token
+
 ## [2.0.0] - 2021-04-26
 
 - Change: Name change to `ruby-gem-setup-credentials` from `ruby-gem-setup-github-packages-action`
