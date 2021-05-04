@@ -55,6 +55,15 @@ with:
    token: ${{ secrets.github_token }}
 ```
 
+For current rubygem tokens, that have no user, add the token like so:
+
+```yaml
+  with:
+    user: ""
+    key: rubygems
+    token: ${{ secrets.RUBYGEMS_KEY }}
+```
+
 ### key
 
 The key name to use in the credentials file. Default is `github`.
