@@ -1,6 +1,9 @@
 # CHANGELOG
 
 ## [Unreleased]
+## [2.1.1] - 2021-05-04
+
+- Add: docs for user input
 
 ## [2.1.0] - 2021-05-04
 

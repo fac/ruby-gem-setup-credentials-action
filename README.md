@@ -42,6 +42,10 @@ If you want to use your own push or other customizations:
 
 ## Inputs
 
+### user
+
+The user name for the token. The default is Bearer, which works with GitHub packages tokens. For other sites you may need a user name or set to empty string to just use a token (e.g. rubygems).
+
 ### token
 
 The token to be used for authenticating with GitHub packages. If you are pushing a gem to the same repo with a matching name, the default token is enough:
@@ -49,6 +53,15 @@ The token to be used for authenticating with GitHub packages. If you are pushing
 ```yaml
 with:
    token: ${{ secrets.github_token }}
+```
+
+For current rubygem tokens, that have no user, add the token like so:
+
+```yaml
+  with:
+    user: ""
+    key: rubygems
+    token: ${{ secrets.RUBYGEMS_KEY }}
 ```
 
 ### key

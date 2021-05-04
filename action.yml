@@ -23,7 +23,7 @@ runs:
     - name: Setup GPR
       shell: bash
       run: |
-        if [ -n "${{ inputs.user}}" ]; then
+        if [ -n "${{ inputs.user }}" ]; then
           GEM_HOST_API_KEY="${{ inputs.user }} ${{ inputs.token }}"
         else
           GEM_HOST_API_KEY="${{ inputs.token }}"
