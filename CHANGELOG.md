@@ -1,6 +1,11 @@
 # CHANGELOG
 
 ## [Unreleased]
+
+## [2.1.2] - 2021-05-06
+
+- Fix: add `required` to user input configuration
+
 ## [2.1.1] - 2021-05-04
 
 - Add: docs for user input
