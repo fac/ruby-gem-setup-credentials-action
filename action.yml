@@ -5,6 +5,7 @@ inputs:
   user:
     description: "User name for the token."
     default: Bearer
+    required: false
   token:
     description: "Token to access GitHub packages. Normally using secrets.github_token is enough."
     required: true
