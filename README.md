@@ -6,7 +6,7 @@ This action will setup ruby gem access (the `~/.gem/credentials` file) with the 
 
 The key is added under the name `github` by default, change with the `key` input. Optionally you can export environment variable `GEM_HOST_API_KEY` which is read by (more recent versions of) the `gem` command. However we advise you to be explicit and pass the key name `github` as an input or argument instead.
 
-You can do the gem push your self, but the action is also designed to be used with the [fac/ruby-gem-push-action](https://github.com/fac/ruby-gem-push-action).
+You can do the gem push yourself, but the action is also designed to be used with the [fac/ruby-gem-push-action](https://github.com/fac/ruby-gem-push-action).
 
 ## Usage
 
