@@ -1,5 +1,8 @@
 name: Ruby Gem Setup Credentials
 author: FreeAgent
+branding:
+  color: 'red'
+  icon: 'credit-card'
 description: Configure ruby gem to access GitHub Packages
 inputs:
   user:
